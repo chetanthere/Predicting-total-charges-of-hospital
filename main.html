@@ -1,0 +1,35 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!-- Title of the page -->
+      <title>6339</title>
+    </head>
+      <body>
+              <!-- list of files in bucket query -->
+        <form action="/task" method="POST">
+        <div align="center"> <big> Project 2 6339 </big> </div>
+   <br>
+             <div align="justify"><input type="submit" style="width:60px; height:60px;" value="Submit"></div>
+         <div align="justify">    <table style="border: 1px solid black">
+          <br>
+          <br>
+          <br>
+          <tbody>
+            <tr>
+            </tr>
+            {% for row in bucket_list %}
+               <tr>
+                <td><input type="checkbox" name="features" value={{ row['name'] }}> <td>
+                 <td>{{ row['name'] }}</td>
+               </tr>
+            {% endfor %}
+          </tbody>
+          </table></div>
+          <div class="flashes">
+  {% for message in get_flashed_messages()%}
+    {{ message|safe }}
+  {% endfor %}
+</div>
+        </form>
+    </body>
+  </html>

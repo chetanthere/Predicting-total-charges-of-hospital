@@ -1,0 +1,30 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!-- Title of the page -->
+      <title>6339</title>
+    </head>
+    <body>
+              <!-- list of files in bucket query -->
+      <div align="center"> <big> Project 2 6339 </big> </div>
+      <form action="/classify" method="POST">
+        <table style="border: 1px solid black">
+          <tbody>
+            </tr>
+            {% for row in selected_list %}
+               <tr>
+                <td>{{ row['id'] }} <td>
+                 <td>{{ row['name'] }}</td>
+               </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div align="justify"><input type="submit" style="width:60px; height:60px;" value="Submit"></div>
+    </form>
+	          <div class="flashes">
+  {% for message in get_flashed_messages()%}
+    {{ message|safe }}
+  {% endfor %}
+</div>
+    </body>
+  </html>
