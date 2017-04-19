@@ -27,8 +27,7 @@ def validate():
 		print(v)
 		
 		if k == 'AGE':
-			#vit = v + 0
-			#print('vit',vit)
+			
 			try:
 				vi = int(v)	
 			except ValueError:
@@ -148,14 +147,12 @@ def getimpf(featuresi):
 	train_id_list = []
 	train_id = train['AGE']
 	train_id_dict = train_id.to_dict()
-	train_id_list = list(train_id_dict.keys())
-	
+	train_id_list = list(train_id_dict.keys())	
 	
 	#forming classes based on percentile
 	tc1max = 13034
 	tc2max = 23809
-	tc3max = 43266
-	
+	tc3max = 43266	
 	
 	print(tc3max)
 	
@@ -198,48 +195,21 @@ def getimpf(featuresi):
 	print(labeled_featuresets[10])
 	classifier = NaiveBayesClassifier.train(labeled_featuresets)
 
-
 	miflist = classifier.most_informative_features(50)
 	#miflist
-
-
 
 	mifdict = dict(miflist)
 	mifdict_keys = list(mifdict.keys())
 	#print(mifdict_keys)
 	mifdict_keys_unique = set(mifdict_keys)
-	mifdict_keys_unique_list = list(mifdict_keys_unique)
-	
+	mifdict_keys_unique_list = list(mifdict_keys_unique)	
 	
 	print("mifdict_keys_unique_list")	
 	#print(mifdict_keys_unique_list)
 	
 	features = mifdict_keys_unique_list
-	print(features)
+	print(features)	
 	
-	
-	"""
-	#this is to chk format of testfeayure
-	testnew = test[mifdict_keys_unique_list]
-	
-	#We are done with creation of model !! yo yo 
-	#it's time to test it on test data
-	list_testfeaturesets = []
-	for i in test_id_list:
-		testfeatures = testnew.ix[i]
-		#print(testfeatures)
-		testfeatureset = testfeatures.to_dict()
-		#testfeatureset
-		list_testfeaturesets.append(testfeatureset)
-    
-
-
-
-	#testfs = list_testfeaturesets[2]
-	#print(testfs)
-	#val = classifier.classify(testfs)
-	#print(val)
-	"""
 	return
 	
 
@@ -322,21 +292,10 @@ def classify():
 			print(features[row])
 		return render_template('new.html', selected_list=selected_list)
 		
-	#testfsl= dict(zip(features, selected))
-	#print(testfsl)
-	#totcharge = 500
+	
 	print("totcharge below",totcharge)
 	#print(classify.accuracy(classifier, testfsl))
-	"""
-	if (totcharge > 43266):
-		totchargec = "High"
-	elif (totcharge > 23809):
-		totchargec = "Medium"
-	elif (totcharge > 13034	):
-		totchargec = "Fair"
-	else:
-		totchargec = "Low"
-	"""	
+	
 	flash("<h1>"+str(totcharge)+"</h1>")
 	#selected_list.append(dict([('name',selected[row]),('id',features[row])]))
 	print("i m at end of classify")
