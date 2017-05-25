@@ -112,9 +112,7 @@ def validate():
 
 #@app.route('/classify',methods=['GET','POST'])	
 def getimpf(featuresi):
-	global classifier
-	print("fi")
-	print(featuresi)
+	global classifier	
 	global features
 	
 	train2 = pd.read_csv('C:/Users/chetan/Desktop/TASK3(updated)/TASK3/6339_Dataset.csv',encoding="iso-8859-1")
