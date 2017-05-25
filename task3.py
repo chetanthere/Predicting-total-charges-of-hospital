@@ -107,7 +107,7 @@ def validate():
 				flash(message)
 				return render_template('main.html')
 		
-	return
+	return None
 
 
 #@app.route('/classify',methods=['GET','POST'])	
@@ -168,7 +168,7 @@ def getimpf(featuresi):
 	mifdict_keys_unique_list = list(mifdict_keys_unique)			
 	features = mifdict_keys_unique_list	
 	
-	return
+	return None
 	
 
 # user defined functions
@@ -232,14 +232,12 @@ def classify():
 		for row in range(len(selected)):
 			selected_list.append(dict([('name',selected[row]),('id',features[row])]))			
 			
-		return render_template('new.html', selected_list=selected_list)
-		
+		return render_template('new.html', selected_list=selected_list)		
 	
 	print("totcharge below",totcharge)	
-	
-	flash("<h1>"+str(totcharge)+"</h1>")
-	
+	flash("<h1>"+str(totcharge)+"</h1>")	
 	return render_template('new3.html')
+
 
 if __name__ == "__main__":
     app.debug = True 
